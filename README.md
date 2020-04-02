@@ -1,5 +1,5 @@
 # Dispersal_experiment
-The dispersal microcosom experiment was performed in March-August 2018
+The dispersal microcosom experiment was performed in March-August 2018. 
 The following is the scripts related to this manuscript: *Dispersal by inundation significantly alters soil bacterial communities in early but not late successional stages*, authored by Xiu Jia, Cas Cornet and Joana Falcão Salles
 
 ## Analysis 16S rRNA sequences (DNA- and RNA-based) 
