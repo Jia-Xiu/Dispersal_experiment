@@ -5,12 +5,8 @@
 rm(list=ls())
 
 # load the directory
-#directory = 'C:/Users/P278113/Dropbox'
-directory = '~/Dropbox' 
-subfolder = 'Dispersal/community_analysis'
+setwd()
 
-setwd(paste(directory, subfolder, sep="/"))
-getwd()
 
 # load packages
 library(vegan)
@@ -278,68 +274,4 @@ pd <- position_dodge(0.1)  ##pd <- position_dodge(width = 0.2, preserve = "singl
     theme(strip.placement = "outside"))
 
 ggsave("alpha_div_four_seawater.jpg", width = 15, height = 17, units = "cm", f, scale = 1, device = "jpeg", dpi = 600)
-
-
-# -----------------------------------------------------------------------------------------------------------------------
-# scatter plot
-(p <- ggplot(df, aes(x=Day, y=shannon, group=Frequency, color=Frequency))+ 
-   geom_point()+
-   geom_smooth(method = "loess", formula = y ~ x, se = FALSE)+
-   scale_color_brewer(palette="Dark2")+
-   facet_grid(Soil ~ Water, scales = "free_x", space = "free_x") +
-   labs(x="Days",y="Shannon", title=" ")+
-   mytheme)
-
-ggsave("Shannon_lineplot.jpg", width = 17, height = 10, units = "cm", device = "jpeg", p, scale = 1.5, dpi = 300)
-
-# box plot
-(f <- ggplot(df, aes(x=Day, y=shannon, fill=Frequency))+
-    geom_boxplot(position=position_dodge(0.8))+
-    geom_point(size = 2, shape = 16, alpha = 0.8, position = position_jitterdodge()) +
-    scale_fill_brewer(palette="Set3")+
-    facet_grid(Soil ~ Water, scales = "free_x", space = "free_x") +
-    labs(x="Days", y="Shannon", title=" ")+
-    mytheme)
-
-ggsave("Shannon_boxplot.jpg", width = 17, height = 10, units = "cm", device = "jpeg", f, scale = 1.5, dpi = 300)
-
-
-
-# scatter plot
-(p <- ggplot(df, aes(x=Day, y=pielous.evenness, group=Frequency, color=Frequency))+ 
-    geom_point()+
-    geom_smooth(method = "loess", formula = y ~ x, se = FALSE)+
-    scale_color_brewer(palette="Dark2")+
-    facet_grid(Soil ~ Water, scales = "free_x", space = "free_x") +
-    labs(x="Days",y="Pielou's evenness", title=" ")+
-    mytheme)
-
-ggsave("pielous.evenness_lineplot.jpg", width = 17, height = 10, units = "cm", device = "jpeg", p, scale = 1.5, dpi = 300)
-
-# box plot
-(f <- ggplot(df, aes(x=Day, y=pielous.evenness, fill=Frequency))+
-    geom_point(size = 2, shape = 16, alpha = 0.8, position = position_jitterdodge()) +
-    geom_boxplot(position=position_dodge(0.8))+
-    scale_fill_brewer(palette="Set3")+
-    facet_grid(Soil ~ Water, scales = "free_x", space = "free_x") +
-    labs(x="Days", y="Pielou's evenness", title=" ")+
-    mytheme)
-
-ggsave("pielous.evenness_boxplot.jpg", width = 17, height = 10, units = "cm", device = "jpeg", f, scale = 1.5, dpi = 300)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
