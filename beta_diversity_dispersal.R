@@ -14,11 +14,8 @@ library(plyr) # for rename
 display.brewer.all()
 
 # change directory
-directory = '~/Dropbox/' 
-subfolder = 'Dispersal/community_analysis'
+setwd()
 
-setwd(paste(directory, subfolder, sep="/"))
-getwd()
 
 mytheme<-theme_bw()+
   theme(text = element_text(size=12),
@@ -372,14 +369,4 @@ dist <- as.dist(as.matrix(dist))
 (result_subcom <- adonis(dist ~ Day*Water*Frequency, data=df, permutation=9999))
 result_subcom
 write.csv(result_subcom$aov.tab, paste("PERMANOVA_bray_year", year, "without_day0.csv", sep = "_"))
-
-# -------------------------------------------------------------------
-f <- function(pal) brewer.pal(brewer.pal.info[pal, "maxcolors"], pal)
-(cols <- f("Set1"))
-
-if (year == "70") {
-  col <- cols[3:6]
-} else {
-  col <- cols[1:6]
-}
 
