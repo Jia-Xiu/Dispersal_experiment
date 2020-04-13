@@ -17,11 +17,16 @@ library(plyr) # rbind.fill
 library(VennDiagram)
 library(cowplot)
 library(picante) # tree
-
+library(GUniFrac) # for UniFrac
+#library(rmarkdown)
 
 # load directory --------------------------------------------------------------------------------------------
-setwd()
+#directory = 'C:/Users/P278113/Dropbox'
+directory = '~/Dropbox/' 
+subfolder = 'Dispersal/community_analysis'
 
+setwd(paste(directory, subfolder, sep="/"))
+getwd()
 
 mytheme<-theme_bw()+
   theme(text = element_text(size=12),
@@ -318,3 +323,86 @@ df2 <- df[df$variable != "Common biosphere", ]
                                  align = "v", common.legend = TRUE, legend = "right")), right = " "))
 
 ggsave("rare_common_ASVs_abundance_raw.pdf", width = 17, height = 16, units = "cm", p, scale = 1.5)
+
+
+
+# stacked-bar plot  
+df0 <- df[df$Soil == "0", ]
+str(df0)
+
+(f1 <- ggplot(df0, aes(x=Day, y=value.mean, fill=variable)) + 
+    geom_bar(stat="identity", width=0.8, colour="black") +
+    #scale_fill_manual(values=my_palette) + # my_palette = c(brewer.pal(6, "Set2")[c(1:2)]) 
+    scale_fill_brewer(palette="Set2") + 
+    scale_y_continuous(expand = c(0, 0), limits = c(0, 105)) +
+    facet_grid(Water~Frequency, scales = "free_x", space = "free_x") +
+    labs(x = "Day", y = "Relative abundance (%)", title = "0 year soil")+
+    mytheme)
+
+# bar plot with error bar
+(p1 <- ggplot(df0, aes(x=Day, y=value.mean, fill=variable))+
+    facet_grid(Water~Frequency, scales = "free_x", space = "free_x") +
+    geom_bar(position = position_dodge(width = 0.7, preserve = "single"), stat="identity",
+             colour="black", size=.3) + 
+    geom_errorbar(aes(ymin=value.mean-value.se, ymax=value.mean+value.se), colour="black", width=.3, size=.3,    # Thinner lines
+                  position = position_dodge(width = 0.7, preserve = "single")) +
+    scale_fill_brewer(palette="Set2") + 
+    scale_y_continuous(expand = c(0, 0), limits = c(0, 105)) +
+    labs(x = "Day", y = "Relative abundance (%)", title = "0 year soil")+
+    mytheme)
+
+df70 <- df[df$Soil == "70", ]
+str(df70); head(df70)
+
+# stacked-bar plot  
+(f2 <- ggplot(df70, aes(x=Day, y=value.mean, fill=variable)) + 
+    geom_bar(stat="identity", width=0.8, colour="black") +
+    #scale_fill_manual(values=my_palette) + # my_palette = c(brewer.pal(6, "Set2")[c(1:2)]) 
+    scale_fill_brewer(palette="Set2") + 
+    scale_y_continuous(expand = c(0, 0), limits = c(0, 105)) +
+    facet_grid(Water~Frequency, scales = "free_x", space = "free_x") +
+    labs(x = "Day", y = "Relative abundance (%)", title = "70 year soil")+
+    mytheme)
+
+# bar plot with error bar
+(p2 <- ggplot(df70, aes(x=Day, y=value.mean, fill=variable))+
+    facet_grid(Water~Frequency, scales = "free_x", space = "free_x") +
+    geom_bar(position = position_dodge(width = 0.7, preserve = "single"), stat="identity",
+             colour="black", size=.3) + 
+    geom_errorbar(aes(ymin=value.mean-value.se, ymax=value.mean+value.se), colour="black", width=.3, size=.3,    # Thinner lines
+                  position = position_dodge(width = 0.7, preserve = "single")) +
+    scale_fill_brewer(palette="Set2") + 
+    scale_y_continuous(expand = c(0, 0), limits = c(0, 105)) +
+    labs(x = "Day", y = "Relative abundance (%)", title = "70 year soil")+
+    mytheme)
+
+(f <- ggarrange(f1, f2, labels = c("A", "B"), common.legend = TRUE, legend = "right", ncol = 1))
+ggsave("Abundance_rare_common_stacked_barplot_raw.pdf", width = 10, height = 18, units = "cm", f, scale = 2)
+ggsave("Abundance_rare_common_stacked_barplot_raw.jpg", width = 10, height = 18, units = "cm", f, scale = 2, dpi = 300)
+(p <- ggarrange(p1, p2, labels = c("A", "B"), common.legend = TRUE, legend = "right", ncol = 1))
+ggsave("Abundance_rare_common_barplot_raw.pdf", width = 12, height = 16, units = "cm", p, scale = 2)
+ggsave("Abundance_rare_common_barplot_raw.jpg", width = 12, height = 16, units = "cm", p, scale = 2, dpi = 300)
+
+# scatter plot
+df_bio <- dcast(df[, 1:6], Year+Month+replicates+variable ~ Dataset)
+df_bio$ratio <- df_bio$cDNA/df_bio$DNA
+df_bio$Month <- factor(df_bio$Month, levels = c("M", "J", "S", "N"), labels=c("May", "Jun", "Sep", "Nov"))
+head(df_bio)
+
+(f <- ggplot(df_bio, aes(Year, ratio, shape = Month, fill = variable)) + 
+    geom_dotplot(binaxis='y', stackdir='center', dotsize=1.2, alpha=0.7) +
+    #geom_point(size=4, alpha=0.7)+
+    scale_shape_manual(values=c(24, 22, 21, 23))+
+    geom_hline(yintercept = c(1), linetype = "dashed") + 
+    scale_fill_brewer(palette="Set2", guide=guide_legend(override.aes = list(shape=21)))+
+    labs(x = "Stage of succession (Years)", y = "cDNA/DNA ratio", fill = "Biosphere", title = " ")+
+    theme_bw()+
+    theme(text = element_text(size=12),
+          legend.box.background = element_rect(),
+          legend.box.margin = margin(1, 1, 1, 1),
+          legend.title = element_text(face = "bold"),
+          panel.grid.major = element_blank(), 
+          panel.grid.minor = element_blank()) )
+
+ggsave("Abundance_rare_common_ratio.png", width = 8.5, height = 6, units = "cm", f, scale = 1.5, dpi = 300)
+ggsave("Abundance_rare_common_ratio.pdf", width = 8.5, height = 6, units = "cm", f, scale = 1.5)
