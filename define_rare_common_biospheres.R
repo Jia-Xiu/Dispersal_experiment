@@ -3,12 +3,7 @@
 # Date: 21-02-2020
 
 # load directory --------------------------------------------------------------------------------------------
-directory = 'C:/Users/P278113/Dropbox'
-#directory = '~/Dropbox/' 
-subfolder = 'Dispersal/community_analysis'
-
-setwd(paste(directory, subfolder, sep="/"))
-getwd()
+setwd()
 
 cutoff = 0.1/100
 
