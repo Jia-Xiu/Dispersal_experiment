@@ -9,14 +9,12 @@ Work at [QIIME2/2019.10](https://docs.qiime2.org/2019.10/) environment, using th
 ## Community and statistic analysis 
 
 * alpha & beta-diversity analysis:
-	* [alpha_diversity_dna_rna.R]( )
-	* [beta_diversity_dna_rna.R]( )
-
-* Summarize the relative abundance of phyla:
-	* [taxa_summarize_dna_rna.R]( )
+	* [alpha_diversity_dispersal_scatterplot.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/alpha_diversity_dispersal_scatterplot.R)
+	* [beta_diversity_dispersal.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/beta_diversity_dispersal.R)
 
 * Analyze the rare biopphere:
-	* Rare_biosphere.R
+	* [define_rare_common_biospheres.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/define_rare_common_biospheres.R)
+	* [rare_biosphere_analysis_dispersal.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/rare_biosphere_analysis_dispersal.R)
 	
 * Metagenome prediction by [PICRUSt2](https://github.com/picrust/picrust2/wiki)
 	* Using [full pipeline script](https://github.com/picrust/picrust2/wiki/Full-pipeline-script)
