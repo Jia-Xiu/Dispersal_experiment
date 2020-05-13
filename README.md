@@ -17,6 +17,9 @@ Work at [QIIME2/2019.10](https://docs.qiime2.org/2019.10/) environment, using th
 
 * Analyze the rare biopphere:
 	* Rare_biosphere.R
+	
+* Metagenome prediction by [PICRUSt2](https://github.com/picrust/picrust2/wiki)
+	* Using [full pipeline script](https://github.com/picrust/picrust2/wiki/Full-pipeline-script)
 
 
 ## Author
