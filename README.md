@@ -18,6 +18,7 @@ Work at [QIIME2/2019.10](https://docs.qiime2.org/2019.10/) environment, using th
 	
 * Metagenome prediction by [PICRUSt2](https://github.com/picrust/picrust2/wiki)
 	* Using [full pipeline script](https://github.com/picrust/picrust2/wiki/Full-pipeline-script)
+	* Overall pattern [PICRUST2_PCoA_dispersal.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/PICRUST2_PCoA_dispersal.R)
 
 
 ## Author
