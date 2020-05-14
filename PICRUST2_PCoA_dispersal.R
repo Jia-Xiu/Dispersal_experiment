@@ -5,10 +5,7 @@
 rm(list=ls())
 
 # change directory   
-directory = '~/Dropbox/'
-subfolder = 'Dispersal/community_analysis'
-
-setwd(paste(directory, subfolder, sep="/"))
+setwd()
 getwd()
 
 library(vegan) 
