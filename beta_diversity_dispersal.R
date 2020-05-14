@@ -15,11 +15,8 @@ library(doBy)
 display.brewer.all()
 
 # change directory
-directory = '~/Dropbox/' 
-subfolder = 'Dispersal/community_analysis'
+setwd()
 
-setwd(paste(directory, subfolder, sep="/"))
-getwd()
 
 mytheme <- theme_bw()+
   theme(text = element_text(size=12),
