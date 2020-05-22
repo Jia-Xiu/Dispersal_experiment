@@ -8,7 +8,7 @@ setwd()
 cutoff = 0.1/100
 
 # source the trucate function
-source("TruncateTable.r") 
+source("TruncateTable.r") #https://github.com/Jia-Xiu/rare_biosphere_assembly/blob/master/TruncateTable.R
 
 years <- c("0", "70")
 
