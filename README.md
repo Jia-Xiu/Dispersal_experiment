@@ -19,13 +19,14 @@ Work at [QIIME2/2019.10](https://docs.qiime2.org/2019.10/) environment, using th
 * Metagenome prediction by [PICRUSt2](https://github.com/picrust/picrust2/wiki)
 	* Using [full pipeline script](https://github.com/picrust/picrust2/wiki/Full-pipeline-script)
 	```
-	# first load module in HPC
+	# load module in HPC
 	module load PICRUSt2/2.3.0b
 	# run script with default settings (<30min)
 	picrust2_pipeline.py -s rep-seqs-cleaned-0-year.fasta -i table_0_year.biom -o picrust2_out_pipeline -p 4
 	picrust2_pipeline.py -s rep-seqs-cleaned-70-year.fasta -i table_70_year.biom -o picrust2_out_pipeline -p 4
 	```
 	* Overall pattern [PICRUST2_PCoA_dispersal.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/PICRUST2_PCoA_dispersal.R)
+	* [PICRUST2_heatmap_dispersal.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/PICRUST2_heatmap_dispersal.R)
 
 
 ## Author
