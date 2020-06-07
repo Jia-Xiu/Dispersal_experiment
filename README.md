@@ -10,6 +10,7 @@ Work at [QIIME2/2019.10](https://docs.qiime2.org/2019.10/) environment, using th
 
 * alpha & beta-diversity analysis:
 	* [alpha_diversity_dispersal_scatterplot.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/alpha_diversity_dispersal_scatterplot.R)
+	* [richness_dispersal_gls_glm.Rmd](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/richness_dispersal_gls_glm.Rmd)
 	* [beta_diversity_dispersal.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/beta_diversity_dispersal.R)
 
 * Analyze the rare biopphere:
