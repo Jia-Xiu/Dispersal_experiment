@@ -15,7 +15,7 @@ library(doBy)
 display.brewer.all()
 
 # change directory
-setwd('~/Dropbox/Dispersal/community_analysis')
+setwd()
 
 
 mytheme <- theme_bw()+
