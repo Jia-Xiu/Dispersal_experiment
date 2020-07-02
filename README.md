@@ -2,7 +2,7 @@
 The dispersal microcosom experiment was performed in March-August 2018. 
 The following is the scripts related to this manuscript: *Dispersal by inundation differentially alters bacterial communities along a primary succession*, authored by Xiu Jia, Cas Cornet and Joana Falcão Salles (in preparation)
 
-## Analysis 16S rRNA sequences (DNA- and RNA-based) 
+## Analysis 16S rRNA gene sequences 
 Work at [QIIME2/2019.10](https://docs.qiime2.org/2019.10/) environment, using the following script
 * [script_dispersal_xiu_5-11-2019.sh](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/script_dispersal_xiu_5-11-2019.sh)
 	 
@@ -27,7 +27,8 @@ Work at [QIIME2/2019.10](https://docs.qiime2.org/2019.10/) environment, using th
 	picrust2_pipeline.py -s rep-seqs-cleaned-70-year.fasta -i table_70_year.biom -o picrust2_out_pipeline -p 4
 	```
 	* Overall pattern [PICRUST2_PCoA_dispersal.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/PICRUST2_PCoA_dispersal.R)
-	* Heatmap for "flight" and "fight" traits [(Dini-Andreote, 2018)](https://www-nature-com.proxy-ub.rug.nl/articles/s41598-018-27783-6) [PICRUST2_heatmap_dispersal.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/PICRUST2_heatmap_dispersal.R)
+	* Heatmap for "flight" and "fight" traits [(Dini-Andreote, 2018)](https://www-nature-com.proxy-ub.rug.nl/articles/s41598-018-27783-6) 
+	[PICRUST2_heatmap_dispersal.R](https://github.com/Jia-Xiu/dispersal_experiment_2018/blob/master/PICRUST2_heatmap_dispersal.R)
 
 
 ## Author
